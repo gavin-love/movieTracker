@@ -1,13 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import { movieFetch } from "../../utilities/apiCalls/apiCalls";
 
 class App extends Component {
+  async componentDidMount() {
+    const movies = await movieFetch();
+    console.log(movies);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
