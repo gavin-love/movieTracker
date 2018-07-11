@@ -1,9 +1,9 @@
 const addMoviesReducer = (state = [], action) => {
   switch(action.type) {
-    case: 'ADD_MOVIES': 
-      return [...state, action]
+    case 'ADD_MOVIES': 
+      return [...state, action];
+    default: return state;
   }
-  default: return state;
 }
 
 export default addMoviesReducer;
