@@ -3,7 +3,8 @@ export const cleanMovies = data => {
     return {
       rating: movie.vote_average,
       summary: movie.overview,
-      image: movie.poster_path
+      image: movie.poster_path,
+      id: movie.movie_id
     };
   });
   return movies;
