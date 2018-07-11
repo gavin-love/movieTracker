@@ -1,6 +1,7 @@
 import * as api from "./apiCalls";
 import MockData from "../../MockData/MockData";
 import { apiKey } from "../../apiKeys";
+import CleanMockData from "../../MockData/MockCleanData";
 
 describe("apiCall", () => {
   describe("movieFetch", () => {
@@ -19,6 +20,10 @@ describe("apiCall", () => {
       await api.movieFetch();
 
       await expect(window.fetch).toHaveBeenCalledWith(expected);
+    });
+
+    it("should return an object if status: 200", async () => {
+      await expect(api.movieFetch()).resolves.toEqual(CleanMockData);
     });
   });
 });

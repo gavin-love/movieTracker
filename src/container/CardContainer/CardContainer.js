@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import Card from "../../Components/Card/Card";
 
 const CardContainer = ({ movies }) => {
-  const displayMovies = movies.map((movie, index) => {
+  const displayMovies = movies.map(movie => {
     console.log(movie);
-    return <Card {...movie} key={index} />;
+    return <Card {...movie} key={movie.id} />;
   });
   return <div>{displayMovies}</div>;
 };
