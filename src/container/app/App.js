@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { movieFetch } from "../../utilities/apiCalls/apiCalls";
-import { addRecentMovies } from '../../Actions/index.js';
-import { connect } from 'react-redux';
+import { addRecentMovies } from "../../Actions/index";
+import { connect } from "react-redux";
+import CardContainer from "../CardContainer/CardContainer";
 
 class App extends Component {
-
   componentDidMount() {
     this.getMovies();
   }
@@ -13,7 +13,7 @@ class App extends Component {
   getMovies = async () => {
     const movies = await movieFetch();
     this.props.handleMovies(movies);
-  }
+  };
 
   render() {
     return (
@@ -21,16 +21,17 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <CardContainer />
       </div>
     );
   }
 }
 
-export const mapDispatchToProps = (dispatch) => {
-  handleMovies: (movies) => dispatch(addRecentMovies(movies))
-}
+export const mapDispatchToProps = dispatch => ({
+  handleMovies: movies => dispatch(addRecentMovies(movies))
+});
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
