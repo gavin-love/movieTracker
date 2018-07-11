@@ -3,7 +3,11 @@ import { connect } from "react-redux";
 import Card from "../../Components/Card/Card";
 
 const CardContainer = ({ movies }) => {
-  console.log(movies);
+  const displayMovies = movies.map((movie, index) => {
+    console.log(movie);
+    return <Card {...movie} key={index} />;
+  });
+  return <div>{displayMovies}</div>;
 };
 
 export const mapStateToProps = state => ({
