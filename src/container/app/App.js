@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import "./App.css";
 import { movieFetch } from "../../utilities/apiCalls/apiCalls";
+import { addRecentMovies } from '../../Actions/index.js';
+import { connect } from 'react-redux';
 
 class App extends Component {
-  async componentDidMount() {
+
+  componentDidMount() {
+    this.getMovies();
+  }
+
+  getMovies = async () => {
     const movies = await movieFetch();
-    console.log(movies);
+    this.props.handleMovies(movies);
   }
 
   render() {
@@ -22,4 +29,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export const mapDispatchToProps = (dispatch) => {
+  handleMovies: (movies) => dispatch(addRecentMovies(movies))
+}
+
+export default connect(null, mapDispatchToProps)(App);

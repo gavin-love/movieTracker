@@ -1,4 +1,4 @@
-import { apiKey } from "../../apiKey";
+import apiKey from "../../apiKey";
 import { cleanMovies } from "../cleaner/cleaner";
 
 export const movieFetch = async () => {
