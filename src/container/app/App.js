@@ -28,6 +28,9 @@ export class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        {this.props.error && 
+          <p>{this.props.error}</p>
+        }
         <Switch>
           <Route exact path="/login" render={() => (
             this.props.users.user_id ? 
@@ -46,7 +49,8 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export const mapStateToProps = (state) => ({
-  users: state.users
+  users: state.users,
+  error: state.error
 })
 
 export default withRouter(connect(

@@ -11,3 +11,10 @@ export const updateUser = (user) => {
     user_id: user.id
   }
 }
+
+export const addError = (error) => {
+  return {
+    type: 'ADD_ERROR',
+    error
+  }
+}

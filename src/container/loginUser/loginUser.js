@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../../utilities/apiCalls/apiCalls.js';
-import { updateUser } from '../../Actions/index.js';
+import { updateUser, addError } from '../../Actions/index.js';
 
 export class LoginUser extends Component {
   constructor() {
@@ -21,8 +21,12 @@ export class LoginUser extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const userData = await getUser(this.state);
-    this.props.handleLogin(userData.data);
+    try {
+      const userData = await getUser(this.state);
+      this.props.handleLogin(userData.data);
+    } catch(error) {
+      this.props.handleError('Email or Password do not match');
+    }
   }
 
   render() {
@@ -49,7 +53,8 @@ export class LoginUser extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  handleLogin: (user) => dispatch(updateUser(user))
+  handleLogin: (user) => dispatch(updateUser(user)),
+  handleError: (error) => dispatch(addError(error))
 })
 
 export default connect(null, mapDispatchToProps)(LoginUser);

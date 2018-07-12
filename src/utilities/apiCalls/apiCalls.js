@@ -39,4 +39,4 @@ export const getUser = async (user) => {
   const response = await fetch(url, userOptions);
   const data = await response.json();
   return data;
-}
+} 
