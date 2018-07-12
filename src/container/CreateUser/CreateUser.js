@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { postNewUser } from "../../utilities/apiCalls/apiCalls";
 import { connect } from 'react-redux';
+import { updateStoreNewUser } from '../../Actions/index'
 
 export class CreateUser extends Component {
   constructor() {
