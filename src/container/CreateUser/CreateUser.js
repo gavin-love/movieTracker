@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { postNewUser } from "../../utilities/apiCalls/apiCalls";
+import { connect } from 'react-redux';
+import { updateUser } from '../../Actions/index'
 
 export class CreateUser extends Component {
   constructor() {
@@ -19,9 +21,13 @@ export class CreateUser extends Component {
     });
   };
 
-  handleSubmit = async () => {
+  handleSubmit = async (event) => {
+    event.preventDefault();
     const response = await postNewUser(this.state);
-    console.log(response);
+        console.log(response.id)
+    if(response.id) {
+      this.props.handleCreateUser({id: response.id});
+    }
   };
 
   render() {
@@ -53,5 +59,8 @@ export class CreateUser extends Component {
     );
   }
 }
+export const mapDispatchToProps = (dispatch) => ({
+  handleCreateUser: (user) => dispatch(updateUser(user))
+})
 
-export default CreateUser;
+export default connect(null, mapDispatchToProps)(CreateUser);
