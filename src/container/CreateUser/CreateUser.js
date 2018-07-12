@@ -19,9 +19,13 @@ export class CreateUser extends Component {
     });
   };
 
+  handleSubmit = async () => {
+    const response = await postNewUser(this.state);
+  };
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="name"
@@ -43,6 +47,7 @@ export class CreateUser extends Component {
           placeholder="password"
           onChange={this.handleChange}
         />
+        <button>Submit</button>
       </form>
     );
   }
