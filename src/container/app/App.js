@@ -15,7 +15,7 @@ class App extends Component {
     const movies = await movieFetch();
     this.props.handleMovies(movies);
     } catch(error) {
-      throw new Error;
+      throw new Error();
     }
   };
 
