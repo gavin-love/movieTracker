@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUser } from '../../utilities/apiCalls/apiCalls.js';
+import { updateUser } from '../../Actions/index.js';
 
 export class LoginUser extends Component {
   constructor() {
@@ -47,4 +48,8 @@ export class LoginUser extends Component {
   }
 }
 
-export default LoginUser;
+const mapDispatchToProps = (dispatch) => ({
+  handleLogin: (user) => dispatch(updateUser(user))
+})
+
+export default connect(null, mapDispatchToProps)(LoginUser);

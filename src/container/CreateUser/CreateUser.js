@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { postNewUser } from "../../utilities/apiCalls/apiCalls";
 import { connect } from 'react-redux';
-import { updateStoreNewUser } from '../../Actions/index'
+import { updateUser } from '../../Actions/index'
 
 export class CreateUser extends Component {
   constructor() {
@@ -60,7 +60,7 @@ export class CreateUser extends Component {
   }
 }
 export const mapDispatchToProps = (dispatch) => ({
-  handleCreateUser: (user) => dispatch(updateStoreNewUser(user))
+  handleCreateUser: (user) => dispatch(updateUser(user))
 })
 
 export default connect(null, mapDispatchToProps)(CreateUser);
