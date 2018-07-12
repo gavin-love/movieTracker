@@ -1,23 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardContainer should match the snapshot 1`] = `
+exports[`Card should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
-    movies={
-        Array [
-            Object {
-              "id": 1,
-            },
-            Object {
-              "id": 2,
-            },
-            Object {
-              "id": 3,
-            },
-          ]
-    }
+    image="www.moviesarefoolish.com"
+    rating={345}
+    summary="what?"
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -32,51 +22,51 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Unknown
-          id={1}
+        <img
+          src="https://image.tmdb.org/t/p/w500www.moviesarefoolish.com"
 />,
-        <Unknown
-          id={2}
-/>,
-        <Unknown
-          id={3}
-/>,
+        <p>
+          what?
+</p>,
+        <h1>
+          345
+</h1>,
       ],
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
-        "key": "1",
-        "nodeType": "function",
+        "key": undefined,
+        "nodeType": "host",
         "props": Object {
-          "id": 1,
+          "src": "https://image.tmdb.org/t/p/w500www.moviesarefoolish.com",
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "img",
       },
       Object {
         "instance": null,
-        "key": "2",
-        "nodeType": "function",
+        "key": undefined,
+        "nodeType": "host",
         "props": Object {
-          "id": 2,
+          "children": "what?",
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": "what?",
+        "type": "p",
       },
       Object {
         "instance": null,
-        "key": "3",
-        "nodeType": "function",
+        "key": undefined,
+        "nodeType": "host",
         "props": Object {
-          "id": 3,
+          "children": 345,
         },
         "ref": null,
-        "rendered": null,
-        "type": [Function],
+        "rendered": 345,
+        "type": "h1",
       },
     ],
     "type": "div",
@@ -88,51 +78,51 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Unknown
-            id={1}
+          <img
+            src="https://image.tmdb.org/t/p/w500www.moviesarefoolish.com"
 />,
-          <Unknown
-            id={2}
-/>,
-          <Unknown
-            id={3}
-/>,
+          <p>
+            what?
+</p>,
+          <h1>
+            345
+</h1>,
         ],
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
-          "key": "1",
-          "nodeType": "function",
+          "key": undefined,
+          "nodeType": "host",
           "props": Object {
-            "id": 1,
+            "src": "https://image.tmdb.org/t/p/w500www.moviesarefoolish.com",
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "img",
         },
         Object {
           "instance": null,
-          "key": "2",
-          "nodeType": "function",
+          "key": undefined,
+          "nodeType": "host",
           "props": Object {
-            "id": 2,
+            "children": "what?",
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": "what?",
+          "type": "p",
         },
         Object {
           "instance": null,
-          "key": "3",
-          "nodeType": "function",
+          "key": undefined,
+          "nodeType": "host",
           "props": Object {
-            "id": 3,
+            "children": 345,
           },
           "ref": null,
-          "rendered": null,
-          "type": [Function],
+          "rendered": 345,
+          "type": "h1",
         },
       ],
       "type": "div",
