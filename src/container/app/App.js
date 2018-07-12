@@ -5,7 +5,7 @@ import { addRecentMovies } from "../../Actions/index";
 import { connect } from "react-redux";
 import CardContainer from "../CardContainer/CardContainer";
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
     this.getMovies();
   }
