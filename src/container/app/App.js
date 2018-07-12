@@ -5,6 +5,7 @@ import { addRecentMovies } from "../../Actions/index";
 import { connect } from "react-redux";
 import CardContainer from "../CardContainer/CardContainer";
 import { Route, Switch, withRouter } from "react-router-dom";
+import Login from "../../Components/Login/Login";
 
 export class App extends Component {
   componentDidMount() {
@@ -26,6 +27,9 @@ export class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+        </Switch>
         <Route exact path="/" component={CardContainer} />
       </div>
     );
