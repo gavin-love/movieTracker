@@ -24,3 +24,19 @@ export const postNewUser = async user => {
   const response = await userFetch.json();
   return response;
 };
+
+export const getUser = async (user) => {
+  const url = 'http://localhost:3000/api/users'
+  const email = user.email.toLowerCase();
+  const userOptions = {
+    method: 'POST',
+    body: JSON.stringify({email, password: user.password}),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  }
+  const response = await fetch(url, userOptions);
+  const data = await response.json();
+  return data;
+}
