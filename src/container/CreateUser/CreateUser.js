@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { runInThisContext } from "vm";
+import { postNewUser } from "../../utilities/apiCalls/apiCalls";
 
 export class CreateUser extends Component {
   constructor() {
@@ -21,6 +21,7 @@ export class CreateUser extends Component {
 
   handleSubmit = async () => {
     const response = await postNewUser(this.state);
+    console.log(response);
   };
 
   render() {
