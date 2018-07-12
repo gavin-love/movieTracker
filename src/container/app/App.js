@@ -4,8 +4,9 @@ import { movieFetch } from "../../utilities/apiCalls/apiCalls";
 import { addRecentMovies } from "../../Actions/index";
 import { connect } from "react-redux";
 import CardContainer from "../CardContainer/CardContainer";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Login from "../../Components/Login/Login";
+
 
 export class App extends Component {
   componentDidMount() {
@@ -28,7 +29,11 @@ export class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Switch>
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" render={() => (
+            this.props.users.user_id ? 
+            <Redirect to='/'/> : 
+            <Login />
+            )}/>
         </Switch>
         <Route exact path="/" component={CardContainer} />
       </div>
@@ -40,7 +45,11 @@ export const mapDispatchToProps = dispatch => ({
   handleMovies: movies => dispatch(addRecentMovies(movies))
 });
 
-export default connect(
-  null,
+export const mapStateToProps = (state) => ({
+  users: state.users
+})
+
+export default withRouter(connect(
+  mapStateToProps,
   mapDispatchToProps
-)(App);
+)(App));

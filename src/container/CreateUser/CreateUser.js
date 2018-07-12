@@ -21,8 +21,10 @@ export class CreateUser extends Component {
     });
   };
 
-  handleSubmit = async () => {
+  handleSubmit = async (event) => {
+    event.preventDefault();
     const response = await postNewUser(this.state);
+        console.log(response.id)
     if(response.id) {
       this.props.handleCreateUser({id: response.id});
     }
@@ -61,4 +63,4 @@ export const mapDispatchToProps = (dispatch) => ({
   handleCreateUser: (user) => dispatch(updateStoreNewUser(user))
 })
 
-export default CreateUser;
+export default connect(null, mapDispatchToProps)(CreateUser);
