@@ -1,7 +1,7 @@
 const MockData = {
   results: [
     {
-      movie_id: 245891,
+      id: 245891,
       vote_average: 7,
       title: "John Wick",
       poster_path:
@@ -11,7 +11,7 @@ const MockData = {
       release_date: "2014-10-22"
     },
     {
-      movie_id: 245891,
+      id: 245891,
       vote_average: 7,
       title: "John Wick",
       poster_path:
@@ -21,7 +21,7 @@ const MockData = {
       release_date: "2014-10-22"
     },
     {
-      movie_id: 245891,
+      id: 245891,
       vote_average: 7,
       title: "John Wick",
       poster_path:

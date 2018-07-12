@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -10,6 +11,7 @@ describe("app", () => {
   let wrapper;
 
   beforeEach(() => {
+
     mockHandleMovies = jest.fn();
     wrapper = shallow(<App handleMovies={mockHandleMovies} />);
   });

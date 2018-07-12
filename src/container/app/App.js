@@ -11,8 +11,12 @@ export class App extends Component {
   }
 
   getMovies = async () => {
+    try {
     const movies = await movieFetch();
     this.props.handleMovies(movies);
+    } catch(error) {
+      throw new Error();
+    }
   };
 
   render() {
