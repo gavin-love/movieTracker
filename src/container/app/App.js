@@ -4,6 +4,8 @@ import { movieFetch } from "../../utilities/apiCalls/apiCalls";
 import { addRecentMovies } from "../../Actions/index";
 import { connect } from "react-redux";
 import CardContainer from "../CardContainer/CardContainer";
+import { Route, Switch, withRouter } from "react-router-dom";
+import Login from "../../Components/Login/Login";
 
 export class App extends Component {
   componentDidMount() {
@@ -12,9 +14,9 @@ export class App extends Component {
 
   getMovies = async () => {
     try {
-    const movies = await movieFetch();
-    this.props.handleMovies(movies);
-    } catch(error) {
+      const movies = await movieFetch();
+      this.props.handleMovies(movies);
+    } catch (error) {
       throw new Error();
     }
   };
@@ -25,7 +27,10 @@ export class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <CardContainer />
+        <Switch>
+          <Route exact path="/login" component={Login} />
+        </Switch>
+        <Route exact path="/" component={CardContainer} />
       </div>
     );
   }

@@ -2,15 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./container/app/App";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './Reducers/index.js';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "./Reducers/index.js";
+import { BrowserRouter } from "react-router-dom";
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const devTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(rootReducer, devTools);
 
-ReactDOM.render(
-  <Provider store={store} >
-    <App />
-  </Provider>
-  , document.getElementById("root"));
+const router = (
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>
+);
+ReactDOM.render(router, document.getElementById("root"));
