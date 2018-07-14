@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import CardContainer from "../../Components/CardContainer/CardContainer";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Login from "../../Components/Login/Login";
-import { Header } from "../../Components/Header/Header";
+import Header from "../../Components/Header/Header";
 import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
 
 export class App extends Component {

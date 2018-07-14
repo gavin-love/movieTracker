@@ -39,3 +39,9 @@ export const addAllFavorites = favorites => {
     favorites
   };
 };
+
+export const addLogout = () => {
+  return {
+    type: "LOGOUT_USER"
+  };
+};

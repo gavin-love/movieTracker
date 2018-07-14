@@ -7,7 +7,11 @@ export const FavoriteContainer = props => {
     return <Card {...favorite} key={favorite.movie_id} />;
   });
   const noFavorites = <p>Select favorites to view here!</p>;
-  return <div>{props.favorites.length ? displayFavorites : noFavorites}</div>;
+  return (
+    <div className="card_section">
+      {props.favorites.length ? displayFavorites : noFavorites}
+    </div>
+  );
 };
 
 export const mapStateToProps = state => ({
