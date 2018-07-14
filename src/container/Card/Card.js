@@ -1,17 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
+import { submitFavorite } from "../../utilities/apiCalls/apiCalls";
 import "./Card.css";
 
-export const Card = ({
-  vote_average,
-  overview,
-  poster_path,
-  release_date,
-  title,
-  movie_id
-}) => {
-  // handleSubmitFavorite = () => {};
+export const Card = props => {
+  const {
+    vote_average,
+    overview,
+    poster_path,
+    release_date,
+    title,
+    movie_id
+  } = props;
 
-  // handleRemoveFavorite = () => {};
+  const handleSubmitFavorite = () => {
+    console.log(props.user);
+    submitFavorite(props, props.user);
+  };
+
+  const favoriteButton = (
+    <div className="card_button" type="button" onClick={handleSubmitFavorite}>
+      favorite
+    </div>
+  );
 
   return (
     <div className="card_div">
@@ -25,7 +36,14 @@ export const Card = ({
           <h1 className="card_rating">{vote_average}</h1>
         </div>
       </div>
-      <button className="card_button">favorite</button>
+      {favoriteButton}
     </div>
   );
 };
+
+export const mapStateToProps = state => ({
+  user: state.user,
+  movies: state.movies
+});
+
+export default connect(mapStateToProps)(Card);

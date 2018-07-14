@@ -7,12 +7,17 @@ export const movieFetch = async () => {
   const response = await fetch(url);
   const movieData = await response.json();
   const movieResults = movieData.results;
-  console.log(movieResults);
   return cleanMovies(movieResults);
 };
 
-export const submitFavorite = async () => {
-  // /api/users / favorites / new
+export const submitFavorite = async (favorite, user) => {
+  const url = "http://localhost:3000/api/users/favorites/new";
+  const options = {
+    method: "POST",
+    body: JSON.stringify({ user_id: user.user_id, ...favorite }),
+    headers: { "Content-Type": "application/json" }
+  };
+  const response = await fetch(url, options);
 };
 
 export const postNewUser = async user => {

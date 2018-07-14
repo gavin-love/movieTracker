@@ -34,7 +34,7 @@ export class App extends Component {
             exact
             path="/login"
             render={() =>
-              this.props.users.user_id ? <Redirect to="/" /> : <Login />
+              this.props.user.user_id ? <Redirect to="/" /> : <Login />
             }
           />
         </Switch>
@@ -49,7 +49,7 @@ export const mapDispatchToProps = dispatch => ({
 });
 
 export const mapStateToProps = state => ({
-  users: state.users,
+  user: state.user,
   error: state.error
 });
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Card } from "../../container/Card/Card";
+import Card from "../../container/Card/Card";
 import "./CardContainer.css";
 
 export const CardContainer = ({ movies }) => {
