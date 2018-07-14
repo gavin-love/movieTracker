@@ -20,6 +20,17 @@ export const submitFavorite = async (favorite, user) => {
   const response = await fetch(url, options);
 };
 
+export const removeFavorite = async favorite => {
+  const url = `http://localhost:3000/api/users/${favorite.user_id}/favorites/${
+    favorite.movie_id
+  }`;
+  const options = {
+    method: "DELETE"
+  };
+
+  const response = await fetch(url, options);
+};
+
 export const postNewUser = async user => {
   const url = "http://localhost:3000/api/users/new";
   const options = {

@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { submitFavorite } from "../../utilities/apiCalls/apiCalls";
+import {
+  submitFavorite,
+  removeFavorite
+} from "../../utilities/apiCalls/apiCalls";
 import { addFavorite } from "../../Actions/index";
 import "./Card.css";
 
@@ -19,9 +22,25 @@ export const Card = props => {
     props.handleFavorite(props);
   };
 
+  const favoriteIds = props.favorites.map(favorite => favorite.movie_id);
+
+  const handleRemoveFavorite = () => {
+    removeFavorite({ movie_id, user_id: props.user.user_id });
+  };
+
   const favoriteButton = (
-    <div className="card_button" type="button" onClick={handleSubmitFavorite}>
+    <div
+      className="favorite_button"
+      type="button"
+      onClick={handleSubmitFavorite}
+    >
       favorite
+    </div>
+  );
+
+  const deleteButton = (
+    <div className="remove_button" type="button" onClick={handleRemoveFavorite}>
+      un-favorite
     </div>
   );
 
@@ -37,14 +56,14 @@ export const Card = props => {
           <h1 className="card_rating">{vote_average}</h1>
         </div>
       </div>
-      {favoriteButton}
+      {favoriteIds.includes(movie_id) ? deleteButton : favoriteButton}
     </div>
   );
 };
 
 export const mapStateToProps = state => ({
   user: state.user,
-  movies: state.movies
+  favorites: state.favorites
 });
 
 export const mapDispatchToProps = dispatch => ({

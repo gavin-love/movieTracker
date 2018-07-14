@@ -22,10 +22,15 @@
 .card_rating {
 }
 
-.card_button {
+.favorite_button,
+.remove_button {
   height: 25px;
   width: 100%;
   background-color: #bfd9da;
   color: #bc4676;
   border: none;
+}
+.remove_button {
+  background-color: #bc4676;
+  color: white;
 }
