@@ -25,3 +25,10 @@ export const addFavorite = favorite => {
     favorite
   };
 };
+
+export const removeFavoriteFromStore = movie_id => {
+  return {
+    type: "REMOVE_FAVORITE",
+    movie_id
+  };
+};

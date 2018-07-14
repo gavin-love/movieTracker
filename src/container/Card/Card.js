@@ -4,7 +4,7 @@ import {
   submitFavorite,
   removeFavorite
 } from "../../utilities/apiCalls/apiCalls";
-import { addFavorite } from "../../Actions/index";
+import { addFavorite, removeFavoriteFromStore } from "../../Actions/index";
 import "./Card.css";
 
 export const Card = props => {
@@ -26,6 +26,7 @@ export const Card = props => {
 
   const handleRemoveFavorite = () => {
     removeFavorite({ movie_id, user_id: props.user.user_id });
+    props.handleRemove(movie_id);
   };
 
   const favoriteButton = (
@@ -67,7 +68,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleFavorite: favorite => dispatch(addFavorite(favorite))
+  handleFavorite: favorite => dispatch(addFavorite(favorite)),
+  handleRemove: movie_id => dispatch(removeFavoriteFromStore(movie_id))
 });
 
 export default connect(
