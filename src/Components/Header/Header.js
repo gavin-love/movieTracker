@@ -1,12 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { addLogout } from "../../Actions/index";
+import { addLogout, emptyFavorites } from "../../Actions/index";
 import "./Header.css";
 
 export const Header = props => {
+  const removeInfo = () => {
+    props.handleLogout();
+    props.resetStoreFavorites();
+  };
   const signoutButton = (
-    <NavLink to="/" onClick={props.handleLogout}>
+    <NavLink to="/" onClick={removeInfo}>
       Sign-Out
     </NavLink>
   );
@@ -28,7 +32,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  handleLogout: () => dispatch(addLogout())
+  handleLogout: () => dispatch(addLogout()),
+  resetStoreFavorites: () => dispatch(emptyFavorites())
 });
 
 export default connect(

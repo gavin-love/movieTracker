@@ -45,3 +45,9 @@ export const addLogout = () => {
     type: "LOGOUT_USER"
   };
 };
+
+export const emptyFavorites = () => {
+  return {
+    type: "EMPTY_FAVORITES"
+  };
+};

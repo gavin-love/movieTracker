@@ -39,7 +39,7 @@ export const Card = props => {
       type="button"
       onClick={() => {
         props.user.user_id
-          ? handleSubmitFavorite
+          ? handleSubmitFavorite()
           : props.handleError("Login to add favorites");
       }}
     >
