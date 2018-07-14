@@ -3,7 +3,7 @@ import "./App.css";
 import { movieFetch } from "../../utilities/apiCalls/apiCalls";
 import { addRecentMovies } from "../../Actions/index";
 import { connect } from "react-redux";
-import CardContainer from "../CardContainer/CardContainer";
+import CardContainer from "../../Components/CardContainer/CardContainer";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Login from "../../Components/Login/Login";
 import { Header } from "../../Components/Header/Header";

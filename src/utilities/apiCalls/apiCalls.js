@@ -7,7 +7,12 @@ export const movieFetch = async () => {
   const response = await fetch(url);
   const movieData = await response.json();
   const movieResults = movieData.results;
+  console.log(movieResults);
   return cleanMovies(movieResults);
+};
+
+export const submitFavorite = async () => {
+  // /api/users / favorites / new
 };
 
 export const postNewUser = async user => {
@@ -25,18 +30,18 @@ export const postNewUser = async user => {
   return response;
 };
 
-export const getUser = async (user) => {
-  const url = 'http://localhost:3000/api/users'
+export const getUser = async user => {
+  const url = "http://localhost:3000/api/users";
   const email = user.email.toLowerCase();
   const userOptions = {
-    method: 'POST',
-    body: JSON.stringify({email, password: user.password}),
+    method: "POST",
+    body: JSON.stringify({ email, password: user.password }),
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
     }
-  }
+  };
   const response = await fetch(url, userOptions);
   const data = await response.json();
   return data;
-} 
+};
