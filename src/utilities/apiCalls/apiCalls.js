@@ -31,6 +31,14 @@ export const removeFavorite = async favorite => {
   const response = await fetch(url, options);
 };
 
+export const getFavorites = async userId => {
+  const url = `http://localhost:3000/api/users/${userId}/favorites`;
+
+  const response = await fetch(url);
+  const favorites = response.json();
+  return favorites;
+};
+
 export const postNewUser = async user => {
   const url = "http://localhost:3000/api/users/new";
   const options = {
