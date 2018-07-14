@@ -29,8 +29,8 @@ export class LoginUser extends Component {
     try {
       const userData = await getUser(this.state);
       this.props.handleLogin(userData.data);
-      this.loadFavorites(userData.data);
       this.props.clearError();
+      this.loadFavorites(userData.data);
     } catch (error) {
       this.props.handleError("Email or Password do not match");
     }

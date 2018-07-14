@@ -10,19 +10,28 @@ export const Header = props => {
     props.resetStoreFavorites();
   };
   const signoutButton = (
-    <NavLink to="/" onClick={removeInfo}>
+    <NavLink activeClassName="active" to="/" onClick={removeInfo}>
       Sign-Out
     </NavLink>
   );
   return (
     <div className="header">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/favorites">Favorites</NavLink>
-      {props.user.user_id ? (
-        signoutButton
-      ) : (
-        <NavLink to="/login">Sign-In</NavLink>
-      )}
+      <div className="logo_section" />
+      <div className="nav_links_container">
+        <NavLink activeClassName="active" to="/">
+          Home
+        </NavLink>
+        <NavLink activeClassName="active" to="/favorites">
+          Favorites
+        </NavLink>
+        {props.user.user_id ? (
+          signoutButton
+        ) : (
+          <NavLink activeClassName="active" to="/login">
+            Sign-In
+          </NavLink>
+        )}
+      </div>
     </div>
   );
 };
