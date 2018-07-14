@@ -1,6 +1,6 @@
 import React from "react";
 import CreateUser from "../../container/CreateUser/CreateUser";
-import LoginUser from '../../container/loginUser/LoginUser';
+import LoginUser from "../../container/loginUser/LoginUser";
 
 const Login = () => {
   return (

@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Card } from "../../Components/Card/Card";
+import Card from "../../container/Card/Card";
+import "./CardContainer.css";
 
 export const CardContainer = ({ movies }) => {
   const displayMovies = movies.map(movie => {
-    console.log(movie);
     return <Card {...movie} key={movie.id} />;
   });
-  return <div>{displayMovies}</div>;
+  return <div className="card_section">{displayMovies}</div>;
 };
 
 export const mapStateToProps = state => ({

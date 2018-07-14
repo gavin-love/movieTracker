@@ -3,10 +3,11 @@ import "./App.css";
 import { movieFetch } from "../../utilities/apiCalls/apiCalls";
 import { addRecentMovies } from "../../Actions/index";
 import { connect } from "react-redux";
-import CardContainer from "../CardContainer/CardContainer";
+import CardContainer from "../../Components/CardContainer/CardContainer";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Login from "../../Components/Login/Login";
-
+import Header from "../../Components/Header/Header";
+import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
 
 export class App extends Component {
   componentDidMount() {
@@ -25,20 +26,21 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+        <header className="app_header">
+          <Header />
         </header>
-        {this.props.error && 
-          <p>{this.props.error}</p>
-        }
+        {this.props.error && <p>{this.props.error}</p>}
         <Switch>
-          <Route exact path="/login" render={() => (
-            this.props.users.user_id ? 
-            <Redirect to='/'/> : 
-            <Login />
-            )}/>
+          <Route
+            exact
+            path="/login"
+            render={() =>
+              this.props.user.user_id ? <Redirect to="/" /> : <Login />
+            }
+          />
         </Switch>
         <Route exact path="/" component={CardContainer} />
+        <Route exact path="/favorites" component={FavoriteContainer} />
       </div>
     );
   }
@@ -48,12 +50,14 @@ export const mapDispatchToProps = dispatch => ({
   handleMovies: movies => dispatch(addRecentMovies(movies))
 });
 
-export const mapStateToProps = (state) => ({
-  users: state.users,
+export const mapStateToProps = state => ({
+  user: state.user,
   error: state.error
-})
+});
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);

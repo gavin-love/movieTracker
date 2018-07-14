@@ -10,6 +10,35 @@ export const movieFetch = async () => {
   return cleanMovies(movieResults);
 };
 
+export const submitFavorite = async (favorite, user) => {
+  const url = "http://localhost:3000/api/users/favorites/new";
+  const options = {
+    method: "POST",
+    body: JSON.stringify({ user_id: user.user_id, ...favorite }),
+    headers: { "Content-Type": "application/json" }
+  };
+  const response = await fetch(url, options);
+};
+
+export const removeFavorite = async favorite => {
+  const url = `http://localhost:3000/api/users/${favorite.user_id}/favorites/${
+    favorite.movie_id
+  }`;
+  const options = {
+    method: "DELETE"
+  };
+
+  const response = await fetch(url, options);
+};
+
+export const getFavorites = async userId => {
+  const url = `http://localhost:3000/api/users/${userId}/favorites`;
+
+  const response = await fetch(url);
+  const favorites = response.json();
+  return favorites;
+};
+
 export const postNewUser = async user => {
   const url = "http://localhost:3000/api/users/new";
   const options = {
@@ -25,18 +54,18 @@ export const postNewUser = async user => {
   return response;
 };
 
-export const getUser = async (user) => {
-  const url = 'http://localhost:3000/api/users'
+export const getUser = async user => {
+  const url = "http://localhost:3000/api/users";
   const email = user.email.toLowerCase();
   const userOptions = {
-    method: 'POST',
-    body: JSON.stringify({email, password: user.password}),
+    method: "POST",
+    body: JSON.stringify({ email, password: user.password }),
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
     }
-  }
+  };
   const response = await fetch(url, userOptions);
   const data = await response.json();
   return data;
-} 
+};
