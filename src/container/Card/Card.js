@@ -4,7 +4,11 @@ import {
   submitFavorite,
   removeFavorite
 } from "../../utilities/apiCalls/apiCalls";
-import { addFavorite, removeFavoriteFromStore } from "../../Actions/index";
+import {
+  addFavorite,
+  removeFavoriteFromStore,
+  addError
+} from "../../Actions/index";
 import "./Card.css";
 
 export const Card = props => {
@@ -33,7 +37,11 @@ export const Card = props => {
     <div
       className="favorite_button"
       type="button"
-      onClick={handleSubmitFavorite}
+      onClick={() => {
+        props.user.user_id
+          ? handleSubmitFavorite
+          : props.handleError("Login to add favorites");
+      }}
     >
       favorite
     </div>
@@ -69,7 +77,8 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   handleFavorite: favorite => dispatch(addFavorite(favorite)),
-  handleRemove: movie_id => dispatch(removeFavoriteFromStore(movie_id))
+  handleRemove: movie_id => dispatch(removeFavoriteFromStore(movie_id)),
+  handleError: error => dispatch(addError(error))
 });
 
 export default connect(
