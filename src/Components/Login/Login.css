@@ -1,0 +1,20 @@
+.login_container {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: 400vh;
+  background-color: rgba(221, 236, 239, 0.7);
+}
+
+.sign_up,
+.log_in {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  height: 200px;
+}
+
+.sign_up {
+  border-right: 3px solid #bc4676;
+}

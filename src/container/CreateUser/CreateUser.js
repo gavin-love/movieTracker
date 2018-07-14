@@ -34,7 +34,7 @@ export class CreateUser extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="sign_up" onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="name"

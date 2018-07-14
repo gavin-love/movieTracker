@@ -45,7 +45,7 @@ export class LoginUser extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="log_in" onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="email"
