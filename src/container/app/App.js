@@ -7,6 +7,7 @@ import CardContainer from "../../Components/CardContainer/CardContainer";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Login from "../../Components/Login/Login";
 import { Header } from "../../Components/Header/Header";
+import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
 
 export class App extends Component {
   componentDidMount() {
@@ -39,6 +40,7 @@ export class App extends Component {
           />
         </Switch>
         <Route exact path="/" component={CardContainer} />
+        <Route exact path="/favorites" component={FavoriteContainer} />
       </div>
     );
   }
