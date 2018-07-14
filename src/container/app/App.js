@@ -25,7 +25,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
+        <header className="app_header">
           <Header />
         </header>
         {this.props.error && <p>{this.props.error}</p>}

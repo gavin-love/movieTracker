@@ -5,14 +5,16 @@ export const Card = ({ rating, summary, image }) => {
   console.log(image);
   return (
     <div className="card_div">
-      <div className="image_div">
-        <img
-          className="card_image"
-          src={`https://image.tmdb.org/t/p/w500${image}`}
-        />
+      <div
+        className="card_image"
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/w500${image})`
+        }}
+      >
+        <div className="rating_div">
+          <h1 className="card_rating">{rating}</h1>
+        </div>
       </div>
-      <p className="card_summary">{summary}</p>
-      <h1 className="card_rating">{rating}</h1>
       <button className="card_button">favorite</button>
     </div>
   );
