@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getUser, getFavorites } from "../../utilities/apiCalls/apiCalls.js";
-import { updateUser, addError, addAllFavorites } from "../../Actions/index.js";
+import {
+  updateUser,
+  addError,
+  addAllFavorites,
+  resolveError
+} from "../../Actions/index.js";
 
 export class LoginUser extends Component {
   constructor() {
@@ -25,6 +30,7 @@ export class LoginUser extends Component {
       const userData = await getUser(this.state);
       this.props.handleLogin(userData.data);
       this.loadFavorites(userData.data);
+      this.props.clearError();
     } catch (error) {
       this.props.handleError("Email or Password do not match");
     }
@@ -63,7 +69,8 @@ export class LoginUser extends Component {
 const mapDispatchToProps = dispatch => ({
   handleLogin: user => dispatch(updateUser(user)),
   handleError: error => dispatch(addError(error)),
-  addUserFavorites: favorites => dispatch(addAllFavorites(favorites))
+  addUserFavorites: favorites => dispatch(addAllFavorites(favorites)),
+  clearError: () => dispatch(resolveError())
 });
 
 export default connect(

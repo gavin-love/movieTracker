@@ -51,3 +51,9 @@ export const emptyFavorites = () => {
     type: "EMPTY_FAVORITES"
   };
 };
+
+export const resolveError = () => {
+  return {
+    type: "CLEAR_ERROR"
+  };
+};
