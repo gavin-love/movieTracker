@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { submitFavorite } from "../../utilities/apiCalls/apiCalls";
+import { addFavorite } from "../../Actions/index";
 import "./Card.css";
 
 export const Card = props => {
@@ -14,8 +15,8 @@ export const Card = props => {
   } = props;
 
   const handleSubmitFavorite = () => {
-    console.log(props.user);
     submitFavorite(props, props.user);
+    props.handleFavorite(props);
   };
 
   const favoriteButton = (
@@ -46,4 +47,11 @@ export const mapStateToProps = state => ({
   movies: state.movies
 });
 
-export default connect(mapStateToProps)(Card);
+export const mapDispatchToProps = dispatch => ({
+  handleFavorite: favorite => dispatch(addFavorite(favorite))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Card);
