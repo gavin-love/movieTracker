@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { postNewUser } from "../../utilities/apiCalls/apiCalls";
-import { connect } from 'react-redux';
-import { updateUser } from '../../Actions/index'
+import { connect } from "react-redux";
+import { updateUser, addError } from "../../Actions/index";
 
 export class CreateUser extends Component {
   constructor() {
@@ -21,14 +21,25 @@ export class CreateUser extends Component {
     });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
-    const response = await postNewUser(this.state);
-        console.log(response.id)
-    if(response.id) {
-      this.props.handleCreateUser({id: response.id});
+    try {
+      const response = await postNewUser(this.state);
+      await this.props.handleCreateUser({ id: response.id });
+    } catch (error) {
+      this.props.handleError("Email already exists or Password does not match");
     }
   };
+
+  // handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const userData = await getUser(this.state);
+  //     this.props.handleLogin(userData.data);
+  //   } catch (error) {
+  //     this.props.handleError('Email or Password do not match');
+  //   }
+  // }
 
   render() {
     return (
@@ -59,8 +70,12 @@ export class CreateUser extends Component {
     );
   }
 }
-export const mapDispatchToProps = (dispatch) => ({
-  handleCreateUser: (user) => dispatch(updateUser(user))
-})
+export const mapDispatchToProps = dispatch => ({
+  handleCreateUser: user => dispatch(updateUser(user)),
+  handleError: error => dispatch(addError(error))
+});
 
-export default connect(null, mapDispatchToProps)(CreateUser);
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreateUser);
