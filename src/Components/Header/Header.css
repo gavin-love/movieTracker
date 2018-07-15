@@ -14,11 +14,11 @@ a {
   font-weight: 200;
 }
 a:hover {
-  color: #bc4676
+  color: #bc4676;
 }
 
 .active {
-   color: #bc4676
+  color: #bc4676;
 }
 
 .nav_links_container {

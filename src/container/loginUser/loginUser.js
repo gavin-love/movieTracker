@@ -46,7 +46,10 @@ export class LoginUser extends Component {
   render() {
     return (
       <form className="log_in" onSubmit={this.handleSubmit}>
+        <h5 className="login_title">Account Login</h5>
+
         <input
+          className="login_user"
           type="text"
           name="email"
           value={this.state.email}
@@ -54,13 +57,14 @@ export class LoginUser extends Component {
           onChange={this.handleChange}
         />
         <input
+          className="login_user"
           type="password"
           name="password"
           value={this.state.password}
           placeholder="Password"
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button className="login_button">Submit</button>
       </form>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { postNewUser } from "../../utilities/apiCalls/apiCalls";
 import { connect } from "react-redux";
 import { updateUser, addError, resolveError } from "../../Actions/index";
+import "./CreateUser.css";
 
 export class CreateUser extends Component {
   constructor() {
@@ -35,7 +36,9 @@ export class CreateUser extends Component {
   render() {
     return (
       <form className="sign_up" onSubmit={this.handleSubmit}>
+        <h5 className="create_title">Create Account</h5>
         <input
+          className="create_user"
           type="text"
           name="name"
           value={this.state.name}
@@ -43,6 +46,7 @@ export class CreateUser extends Component {
           onChange={this.handleChange}
         />
         <input
+          className="create_user"
           type="text"
           name="email"
           value={this.state.email}
@@ -50,13 +54,14 @@ export class CreateUser extends Component {
           onChange={this.handleChange}
         />
         <input
+          className="create_user"
           type="password"
           name="password"
           value={this.state.password}
           placeholder="password"
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button className="create_button">Submit</button>
       </form>
     );
   }
