@@ -58,7 +58,7 @@ describe('handleChange', () => {
       Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
       expect(postNewUser).toHaveBeenCalledWith(wrapper.state());
     })
-    it('should call handleCreatUser with the correct params', async () => {
+    it('should call handleCreateUser with the correct params', async () => {
       const mockEvent = {
         preventDefault: jest.fn()
       }
@@ -68,6 +68,13 @@ describe('handleChange', () => {
       }
       await wrapper.instance().handleSubmit(mockEvent);
       expect(mockHandleCreateUser).toHaveBeenCalledWith(mockUser);
+    })
+    it('should call clearError', async () => {
+      const mockEvent = {
+        preventDefault: jest.fn()
+      } 
+      await wrapper.instance().handleSubmit(mockEvent);
+      expect(mockHandleError).toHaveBeenCalled();
     })
   })
 })
