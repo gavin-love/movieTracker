@@ -11,4 +11,15 @@ describe('errorReducer', () => {
     const newState = errorReducer(initialState, mockAction);
     expect(newState).toEqual(mockState);
   })
+  it('should return an empty string with type of CLEAR_ERROR', () => {
+    const initialState = {
+      error: 'clear'
+    }
+    const mockAction = {
+      type: 'CLEAR_ERROR', 
+    }
+    const mockState = '';
+    const newState = errorReducer(initialState, mockAction);
+    expect(newState).toEqual(mockState);
+  })
 })
