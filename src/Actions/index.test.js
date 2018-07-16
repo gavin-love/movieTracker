@@ -79,3 +79,13 @@ describe('addAllFavorites', () => {
     expect(actual).toEqual(expected);
   })
 })
+
+describe('addLogout', () => {
+  it('has a type of LOGOUT_USER', () => {
+    const actual = actions.addLogout();
+    const expected = {
+      type: 'LOGOUT_USER'
+    }
+    expect(actual).toEqual(expected);
+  })
+})
