@@ -106,7 +106,17 @@ describe('handleChange', () => {
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     })
   })
-})
+
+    it('should call clearError with the right params', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'CLEAR_ERROR', 
+      }
+      mappedProps.clearError();
+      expect(mockDispatch).toHaveBeenCalled();
+    })
+  })
 
 
 
