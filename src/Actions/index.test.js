@@ -29,3 +29,15 @@ describe('updateUser', () => {
     expect(actual).toEqual(expected);
   })
 })
+
+describe('addError', () => {
+  it('has a type of ADD_ERROR', () => {
+    const mockError = 'error';
+    const actual = actions.addError(mockError);
+    const expected = {
+      type: 'ADD_ERROR',
+      error: mockError
+    }
+    expect(actual).toEqual(expected);
+  })
+})
