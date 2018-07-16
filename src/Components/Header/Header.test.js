@@ -30,3 +30,15 @@ describe('mapStateToProps', () => {
     expect(mappedProps).toEqual(expected);
   })
 })
+
+describe('mapDispatchToProps', () => {
+  it('should map handleLogout to props', () => {
+    const mockDispatch = jest.fn();
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    const mockAction = {
+      type: 'LOGOUT_USER'
+    }
+    mappedProps.handleLogout();
+    expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+  })
+})
