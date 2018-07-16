@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './Header';
+import { Header, mapStateToProps, mapDispatchToProps } from './Header';
 import { shallow } from 'enzyme';
 
 describe('Header', () => {
@@ -11,5 +11,22 @@ describe('Header', () => {
     }
     const wrapper = shallow(<Header {...mockProps} />)
     expect(wrapper).toMatchSnapshot();
+  })
+})
+
+describe('mapStateToProps', () => {
+  it('should map state to props', () => {
+    const mockState = {
+      user: {
+        user_id: 1
+      }
+    }
+    const expected = {
+      user: {
+        user_id: 1
+      }
+    }
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
   })
 })
