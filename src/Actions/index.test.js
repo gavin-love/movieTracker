@@ -41,3 +41,18 @@ describe('addError', () => {
     expect(actual).toEqual(expected);
   })
 })
+
+describe('addFavorite', () => {
+  it('has a type of ADD_FAVORITE', () => {
+    const mockFavorite = {
+      movie_id: 2
+    }
+    const actual = actions.addFavorite(mockFavorite);
+    const expected = {
+      type: 'ADD_FAVORITE',
+      favorite: mockFavorite
+    }
+    expect(actual).toEqual(expected);
+  })
+})
+
