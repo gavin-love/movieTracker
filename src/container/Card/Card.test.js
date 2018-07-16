@@ -97,6 +97,9 @@ describe('removeFavorites', () => {
     }
     expect(removeFavorite).toHaveBeenCalledWith(mockParams);
   })
+  it('should call handleRemove with the correct parameters', () => {
+    expect(mockHandleRemove).toHaveBeenCalledWith(1);
+  })
 })
 })
 
