@@ -16,9 +16,8 @@ describe('LoginUser', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  it.skip('should have an initial state', () => {
+  it('should have an initial state', () => {
     const expected = {
-      name: '',
       email: '', 
       password: ''
     }
