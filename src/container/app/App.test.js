@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { App, mapDispatchToProps } from "./App";
+import { App, mapDispatchToProps, mapStateToProps } from "./App";
 import { shallow } from "enzyme";
 import CleanMockData from "../../MockData/MockCleanData";
 
@@ -38,3 +38,22 @@ describe("mapDispatch", () => {
     expect(mockDispatch).toHaveBeenCalledWith(mockAction);
   });
 });
+
+describe('mapState', () => {
+  it('should map the user and error to props', () => {
+    const mockState = {
+      user: {
+        user_id: 7
+      },
+      error: 'error'
+    }
+    const expected = {
+      user: {
+        user_id: 7
+      }, 
+      error: 'error'
+    }
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
+  })
+})
