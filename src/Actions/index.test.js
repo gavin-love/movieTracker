@@ -12,3 +12,20 @@ describe("addRecentMovie", () => {
     });
   });
 });
+
+describe('updateUser', () => {
+  it('has a type of ADD_USER', () =>  {
+    const mockUser = {
+      id: 5,
+      name: 'gnjong',
+      password: 'a',
+      email: 'b'
+    }
+    const actual = actions.updateUser(mockUser);
+    const expected = {
+      type: 'ADD_USER',
+      user_id: 5
+    }
+    expect(actual).toEqual(expected);
+  })
+})
