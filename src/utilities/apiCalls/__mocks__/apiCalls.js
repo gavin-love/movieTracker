@@ -1,0 +1,1 @@
+export const submitFavorite = jest.fn().mockImplementation(() => Promise.resolve());
