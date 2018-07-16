@@ -7,21 +7,24 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Unknown
     favorites={
         Array [
-            Object {},
+            Object {
+              "movie_id": 1,
+            },
             Object {},
             Object {},
           ]
     }
+    handleRemove={[Function]}
     handleRemoveFavorite={[Function]}
     handleSubmitFavorite={[Function]}
-    movie_id={4}
+    movie_id={1}
     overview="what?"
     poster_path="www.moviesarefoolish.com"
     release_date={56}
     title="movie"
     user={
         Object {
-            "user_id": 6,
+            "user_id": 2,
           }
     }
     vote_average={345}
@@ -58,11 +61,11 @@ ShallowWrapper {
           </div>
 </div>,
         <div
-          className="favorite_button"
+          className="remove_button"
           onClick={[Function]}
           type="button"
 >
-          favorite
+          un-favorite
 </div>,
       ],
       "className": "card_div",
@@ -123,13 +126,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "favorite",
-          "className": "favorite_button",
+          "children": "un-favorite",
+          "className": "remove_button",
           "onClick": [Function],
           "type": "button",
         },
         "ref": null,
-        "rendered": "favorite",
+        "rendered": "un-favorite",
         "type": "div",
       },
     ],
@@ -161,11 +164,11 @@ ShallowWrapper {
             </div>
 </div>,
           <div
-            className="favorite_button"
+            className="remove_button"
             onClick={[Function]}
             type="button"
 >
-            favorite
+            un-favorite
 </div>,
         ],
         "className": "card_div",
@@ -226,13 +229,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "favorite",
-            "className": "favorite_button",
+            "children": "un-favorite",
+            "className": "remove_button",
             "onClick": [Function],
             "type": "button",
           },
           "ref": null,
-          "rendered": "favorite",
+          "rendered": "un-favorite",
           "type": "div",
         },
       ],

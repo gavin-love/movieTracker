@@ -9,28 +9,31 @@ describe("Card", () => {
   let mockProps;
   let wrapper;
   let mockHandleSubmitFavorite
-  let mockHandleRemoveFavorite
+  let mockHandleRemove
 
   beforeEach(() => {
+
+    mockHandleRemove = jest.fn();
+
     mockProps = {
       vote_average: 345,
       overview: "what?",
       poster_path: "www.moviesarefoolish.com",
       release_date: 56,
       title: 'movie',
-      movie_id: 4,
+      movie_id: 1,
       user: {
-        user_id: 6
+        user_id: 2
       },
-      favorites: [{}, {}, {}]
+      favorites: [{movie_id:1}, {}, {}],
+      handleRemove: mockHandleRemove
     };
 
     mockHandleSubmitFavorite = jest.fn();
 
-    mockHandleRemoveFavorite = jest.fn();
 
     wrapper = shallow(<Card {...mockProps} 
-      handleRemoveFavorite={mockHandleRemoveFavorite}
+      handleRemoveFavorite={mockHandleRemove}
       handleSubmitFavorite={mockHandleSubmitFavorite}
       />);
   });
@@ -38,18 +41,16 @@ describe("Card", () => {
   it("should match the snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
-});
 
 describe('handleSubmitFavorite', () => {
   let mockProps;
   let wrapper;
   let mockSubmitFavorite
-  let mockRemoveFavorite
+  let mockHandleRemove
 
     beforeEach(() => {
       mockSubmitFavorite = jest.fn();
-
-      mockRemoveFavorite = jest.fn();
+      mockHandleRemove = jest.fn();
 
       mockProps = {
         vote_average: 345,
@@ -59,11 +60,11 @@ describe('handleSubmitFavorite', () => {
         title: 'movie',
         movie_id: 4,
         user: {
-          user_id: 6
+          user_id: 2
         },
-        favorites: [{}, {}, {}],
+        favorites: [{movie_id: 1}, {}, {}],
         handleFavorite: mockSubmitFavorite,
-        removeFavorite: mockRemoveFavorite
+        handleRemove: mockHandleRemove
       };
 
     wrapper = shallow(<Card {...mockProps} />);
@@ -72,7 +73,7 @@ describe('handleSubmitFavorite', () => {
   });
     it('should call submitFavorite', () => {
       const mockParams = {
-        movie_id: 6,
+        movie_id: 2,
         user_id: 4
       }
       expect(submitFavorite).toHaveBeenCalledWith(mockProps, mockProps.user);
@@ -81,3 +82,30 @@ describe('handleSubmitFavorite', () => {
     expect(mockSubmitFavorite).toHaveBeenCalledWith(mockProps);
   })
 })
+
+describe('removeFavorites', () => {
+  let handleRemove;
+  beforeEach(() => {
+    handleRemove = jest.fn()
+    wrapper.find('.remove_button').simulate('click');
+  });
+
+  it('should call removeFavorites', () => {
+    const mockParams = {
+      movie_id: 1,
+      user_id: 2
+    }
+    expect(removeFavorite).toHaveBeenCalledWith(mockParams);
+  })
+})
+})
+
+
+
+
+
+
+
+
+
+
