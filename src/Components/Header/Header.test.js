@@ -41,4 +41,14 @@ describe('mapDispatchToProps', () => {
     mappedProps.handleLogout();
     expect(mockDispatch).toHaveBeenCalledWith(mockAction);
   })
+
+    it('should map emptyFavorites to props', () => {
+    const mockDispatch = jest.fn();
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    const mockAction = {
+      type: 'EMPTY_FAVORITES'
+    }
+    mappedProps.resetStoreFavorites();
+    expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+  })
 })
