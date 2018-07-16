@@ -92,6 +92,19 @@ describe('handleChange', () => {
       mappedProps.handleCreateUser(mockUser);
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     })
+
+    it('should call handleError with the right params', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_ERROR', 
+        error: 'error'
+      }
+      const mockError = 'error';
+
+      mappedProps.handleError(mockError);
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    })
   })
 })
 
