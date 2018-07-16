@@ -15,6 +15,7 @@ describe('CreateUser', () => {
       handleError={mockHandleError}
     />)
   })
+
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
@@ -27,4 +28,25 @@ describe('CreateUser', () => {
     }
     expect(wrapper.state()).toEqual(expected);
   })
+
+describe('handleChange', () => {
+  it('should update state', () => {
+  let mockEvent = {
+    target: {
+      name: 'name',
+      value: 'cat'
+    }
+  }
+  const expected = {
+      name: 'cat',
+      email: '', 
+      password: ''
+    }
+  wrapper.instance().handleChange(mockEvent);
+  expect(wrapper.state()).toEqual(expected);
 })
+})
+})
+
+
+
