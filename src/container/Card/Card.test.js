@@ -77,4 +77,7 @@ describe('handleSubmitFavorite', () => {
       }
       expect(submitFavorite).toHaveBeenCalledWith(mockProps, mockProps.user);
     })
+  it('should call handleFavorite with the correct params', () => {
+    expect(mockSubmitFavorite).toHaveBeenCalledWith(mockProps);
+  })
 })
