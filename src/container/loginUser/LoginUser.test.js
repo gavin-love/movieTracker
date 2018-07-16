@@ -25,15 +25,15 @@ describe('LoginUser', () => {
   })
 
 describe('handleChange', () => {
-  it.skip('should update state', () => {
+  it('should update state', () => {
     let mockEvent = {
       target: {
         name: 'name',
-        value: 'cat'
+        value: 'dog'
       }
     }
     const expected = {
-        name: 'cat',
+        name: 'dog',
         email: '', 
         password: ''
       }
