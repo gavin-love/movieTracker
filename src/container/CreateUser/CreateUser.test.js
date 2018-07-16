@@ -1,6 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { CreateUser, mapDispatchToProps } from './CreateUser';
+import { postNewUser } from '../../utilities/apiCalls/apiCalls';
+
+jest.mock('../../utilities/apiCalls/apiCalls')
 
 describe('CreateUser', () => {
   let wrapper;
@@ -31,22 +34,33 @@ describe('CreateUser', () => {
 
 describe('handleChange', () => {
   it('should update state', () => {
-  let mockEvent = {
-    target: {
-      name: 'name',
-      value: 'cat'
+    let mockEvent = {
+      target: {
+        name: 'name',
+        value: 'cat'
+      }
     }
-  }
-  const expected = {
-      name: 'cat',
-      email: '', 
-      password: ''
-    }
-  wrapper.instance().handleChange(mockEvent);
-  expect(wrapper.state()).toEqual(expected);
+    const expected = {
+        name: 'cat',
+        email: '', 
+        password: ''
+      }
+    wrapper.instance().handleChange(mockEvent);
+    expect(wrapper.state()).toEqual(expected);
+    })
+  })
+
+  describe('handleSubmit', () => {
+    it('should call postNewUser with the correct params', () => {
+      const mockEvent = {
+        preventDefault: jest.fn()
+      }
+      Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
+      expect(postNewUser).toHaveBeenCalledWith(wrapper.state());
+    })
+  })
 })
-})
-})
+
 
 
 
