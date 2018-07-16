@@ -136,10 +136,22 @@ describe('mapDispatchToProps', () => {
     const mappedProps = mapDispatchToProps(mockDispatch);
     const mockAction = {
       type: 'REMOVE_FAVORITE',
-      movie_id: {}
+      movie_id: 5
     }
-    const mockParam = {};
+    const mockParam = 5;
     mappedProps.handleRemove(mockParam)
+    expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+  })
+
+    it('should call dispatch on handleRemove with the correct params', () => {
+    const mockDispatch = jest.fn();
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    const mockAction = {
+      type: 'ADD_ERROR',
+      error: ''
+    }
+    const mockParam = '';
+    mappedProps.handleError(mockParam)
     expect(mockDispatch).toHaveBeenCalledWith(mockAction);
   })
 })
