@@ -56,3 +56,14 @@ describe('addFavorite', () => {
   })
 })
 
+describe('removeFavoriteFromStore', () => {
+  it('has a type of REMOVE_FAVORITE', () => {
+    const mockId = 6
+    const actual = actions.removeFavoriteFromStore(mockId);
+    const expected = {
+      type: 'REMOVE_FAVORITE',
+      movie_id: mockId
+    }
+    expect(actual).toEqual(expected);
+  })
+})
