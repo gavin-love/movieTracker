@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Card } from "./Card";
+import { Card, mapStateToProps, mapDispatchToProps } from "./Card";
 import { submitFavorite, removeFavorite } from '../../utilities/apiCalls/apiCalls';
 
 jest.mock('../../utilities/apiCalls/apiCalls');
@@ -101,6 +101,21 @@ describe('removeFavorites', () => {
     expect(mockHandleRemove).toHaveBeenCalledWith(1);
   })
 })
+})
+
+describe('mapStateToProps', () => {
+  it('should return an object', () => {
+    const mockState = {
+     user: 'ben', 
+     favorites: []
+    }
+    const expected = {
+      user: 'ben', 
+     favorites: []
+    }
+    const mappedProps = mapStateToProps(mockState);
+    expect(mappedProps).toEqual(expected);
+  })
 })
 
 
