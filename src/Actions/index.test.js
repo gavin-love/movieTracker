@@ -99,3 +99,13 @@ describe('emptyFavorites', () => {
     expect(actual).toEqual(expected);
   })
 })
+
+describe('resolveError', () => {
+  it('should have a type of CLEAR_ERROR', () => {
+    const actual = actions.resolveError();
+    const expected = {
+      type: 'CLEAR_ERROR'
+    }
+    expect(actual).toEqual(expected);
+  })
+})
