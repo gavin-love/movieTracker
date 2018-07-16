@@ -118,6 +118,20 @@ describe('mapStateToProps', () => {
   })
 })
 
+describe('mapDispatchToProps', () => {
+  it('should call dispatch on handleFavorite with the correct params', () => {
+    const mockDispatch = jest.fn();
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    const mockAction = {
+      type: 'ADD_FAVORITE',
+      favorite: {}
+    }
+    const mockParam = {};
+    mappedProps.handleFavorite(mockParam)
+    expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+  })
+})
+
 
 
 
