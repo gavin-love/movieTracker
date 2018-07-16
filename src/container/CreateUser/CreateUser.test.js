@@ -77,6 +77,22 @@ describe('handleChange', () => {
       expect(mockHandleError).toHaveBeenCalled();
     })
   })
+
+  describe('mapDispatchToProps', () => {
+    it('should call handleCreateUser with the right params', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'ADD_USER', 
+        user_id: 4
+      }
+      const mockUser = {
+        id: 4
+      }
+      mappedProps.handleCreateUser(mockUser);
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    })
+  })
 })
 
 
