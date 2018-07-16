@@ -18,4 +18,13 @@ describe('CreateUser', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot()
   })
+
+  it('should have an initial state', () => {
+    const expected = {
+      name: '',
+      email: '', 
+      password: ''
+    }
+    expect(wrapper.state()).toEqual(expected);
+  })
 })
