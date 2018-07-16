@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateUser should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CreateUser
+    handleCreateUser={[Function]}
+    handleError={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h5
+          className="create_title"
+>
+          Create Account
+</h5>,
+        <input
+          className="create_user"
+          name="name"
+          onChange={[Function]}
+          placeholder="name"
+          type="text"
+          value=""
+/>,
+        <input
+          className="create_user"
+          name="email"
+          onChange={[Function]}
+          placeholder="email"
+          type="text"
+          value=""
+/>,
+        <input
+          className="create_user"
+          name="password"
+          onChange={[Function]}
+          placeholder="password"
+          type="password"
+          value=""
+/>,
+        <button
+          className="create_button"
+>
+          Submit
+</button>,
+      ],
+      "className": "sign_up",
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Create Account",
+          "className": "create_title",
+        },
+        "ref": null,
+        "rendered": "Create Account",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "create_user",
+          "name": "name",
+          "onChange": [Function],
+          "placeholder": "name",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "create_user",
+          "name": "email",
+          "onChange": [Function],
+          "placeholder": "email",
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "create_user",
+          "name": "password",
+          "onChange": [Function],
+          "placeholder": "password",
+          "type": "password",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Submit",
+          "className": "create_button",
+        },
+        "ref": null,
+        "rendered": "Submit",
+        "type": "button",
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h5
+            className="create_title"
+>
+            Create Account
+</h5>,
+          <input
+            className="create_user"
+            name="name"
+            onChange={[Function]}
+            placeholder="name"
+            type="text"
+            value=""
+/>,
+          <input
+            className="create_user"
+            name="email"
+            onChange={[Function]}
+            placeholder="email"
+            type="text"
+            value=""
+/>,
+          <input
+            className="create_user"
+            name="password"
+            onChange={[Function]}
+            placeholder="password"
+            type="password"
+            value=""
+/>,
+          <button
+            className="create_button"
+>
+            Submit
+</button>,
+        ],
+        "className": "sign_up",
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Create Account",
+            "className": "create_title",
+          },
+          "ref": null,
+          "rendered": "Create Account",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "create_user",
+            "name": "name",
+            "onChange": [Function],
+            "placeholder": "name",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "create_user",
+            "name": "email",
+            "onChange": [Function],
+            "placeholder": "email",
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "create_user",
+            "name": "password",
+            "onChange": [Function],
+            "placeholder": "password",
+            "type": "password",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Submit",
+            "className": "create_button",
+          },
+          "ref": null,
+          "rendered": "Submit",
+          "type": "button",
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
