@@ -67,3 +67,15 @@ describe('removeFavoriteFromStore', () => {
     expect(actual).toEqual(expected);
   })
 })
+
+describe('addAllFavorites', () => {
+  it('has a type of ADD_FAVORITES', () => {
+    const mockFavorites = [{},{},{}];
+    const actual = actions.addAllFavorites(mockFavorites);
+    const expected = {
+      type: 'ADD_FAVORITES',
+      favorites: mockFavorites
+    }
+    expect(actual).toEqual(expected);
+  })
+})
