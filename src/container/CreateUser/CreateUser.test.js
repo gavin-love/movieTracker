@@ -58,6 +58,17 @@ describe('handleChange', () => {
       Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
       expect(postNewUser).toHaveBeenCalledWith(wrapper.state());
     })
+    it('should call handleCreatUser with the correct params', async () => {
+      const mockEvent = {
+        preventDefault: jest.fn()
+      }
+
+      const mockUser = {
+        id: 1
+      }
+      await wrapper.instance().handleSubmit(mockEvent);
+      expect(mockHandleCreateUser).toHaveBeenCalledWith(mockUser);
+    })
   })
 })
 
