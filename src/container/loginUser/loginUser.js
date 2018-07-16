@@ -29,8 +29,8 @@ export class LoginUser extends Component {
     try {
       const userData = await getUser(this.state);
       this.props.handleLogin(userData.data);
-      this.loadFavorites(userData.data);
       this.props.clearError();
+      this.loadFavorites(userData.data);
     } catch (error) {
       this.props.handleError("Email or Password do not match");
     }
@@ -45,8 +45,11 @@ export class LoginUser extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="log_in" onSubmit={this.handleSubmit}>
+        <h5 className="login_title">Account Login</h5>
+
         <input
+          className="login_user"
           type="text"
           name="email"
           value={this.state.email}
@@ -54,13 +57,14 @@ export class LoginUser extends Component {
           onChange={this.handleChange}
         />
         <input
+          className="login_user"
           type="password"
           name="password"
           value={this.state.password}
           placeholder="Password"
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button className="login_button">Submit</button>
       </form>
     );
   }

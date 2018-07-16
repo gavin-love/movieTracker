@@ -4,11 +4,7 @@ import {
   submitFavorite,
   removeFavorite
 } from "../../utilities/apiCalls/apiCalls";
-import {
-  addFavorite,
-  removeFavoriteFromStore,
-  addError
-} from "../../Actions/index";
+import { addFavorite, removeFavoriteFromStore, addError } from "../../Actions";
 import "./Card.css";
 
 export const Card = props => {
