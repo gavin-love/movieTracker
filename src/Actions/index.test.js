@@ -89,3 +89,13 @@ describe('addLogout', () => {
     expect(actual).toEqual(expected);
   })
 })
+
+describe('emptyFavorites', () => {
+  it('has a type of EMPTY_FAVORITES', () => {
+    const actual = actions.emptyFavorites();
+    const expected = {
+      type: 'EMPTY_FAVORITES'
+    }
+    expect(actual).toEqual(expected);
+  })
+})
