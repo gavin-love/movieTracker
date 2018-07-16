@@ -34,4 +34,13 @@ describe('favoriteReducer', () => {
     const expected = favoriteReducer(initialState, mockAction);
     expect(expected).toEqual(newState);
   })
+  it('should return an empty favorites array', () => {
+    const initialState = [{},{}];
+    const mockAction = {
+      type: 'EMPTY_FAVORITES', 
+    }
+    const newState = [];
+    const expected = favoriteReducer(initialState, mockAction);
+    expect(expected).toEqual(newState);
+  })
 })
