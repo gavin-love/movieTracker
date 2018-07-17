@@ -89,7 +89,7 @@ describe('handleChange', () => {
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     })
 
-    it.skip('should call handleError with the right params', () => {
+    it('should call handleError with the right params', () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
@@ -103,11 +103,11 @@ describe('handleChange', () => {
     })
   })
 
-    it.skip('should call clearError with the right params', () => {
+    it('should call addUserFavorites with the right params', () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
-        type: 'CLEAR_ERROR', 
+        type: 'ADD_FAVORITES', 
       }
       mappedProps.clearError();
       expect(mockDispatch).toHaveBeenCalled();
