@@ -51,6 +51,11 @@ export const Card = props => {
 
   return (
     <div className="card_div">
+      <div className="overview-div">
+        <h2 className="movie-title">{title}</h2>
+        <h4 className="movie-date">{release_date}</h4>
+        <p>{overview}</p>
+      </div>
       <div
         className="card_image"
         style={{
