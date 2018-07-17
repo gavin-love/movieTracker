@@ -70,7 +70,7 @@ export class LoginUser extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   handleLogin: user => dispatch(updateUser(user)),
   handleError: error => dispatch(addError(error)),
   addUserFavorites: favorites => dispatch(addAllFavorites(favorites)),

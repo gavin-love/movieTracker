@@ -1,22 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CreateUser, mapDispatchToProps } from './CreateUser';
-import { postNewUser } from '../../utilities/apiCalls/apiCalls';
+import { LoginUser, mapDispatchToProps } from './LoginUser';
+import { getUser } from '../../utilities/apiCalls/apiCalls';
 
 jest.mock('../../utilities/apiCalls/apiCalls')
 
-describe('CreateUser', () => {
+describe('LoginUser', () => {
   let wrapper;
-  let mockHandleCreateUser;
-  let mockHandleError;
 
   beforeEach(() => {
-    mockHandleCreateUser = jest.fn();
-    mockHandleError = jest.fn();
-    wrapper = shallow(<CreateUser 
-      handleCreateUser={mockHandleCreateUser} 
-      handleError={mockHandleError}
-    />)
+    wrapper = shallow(<LoginUser />)
   })
 
   it('should match the snapshot', () => {
@@ -25,7 +18,6 @@ describe('CreateUser', () => {
 
   it('should have an initial state', () => {
     const expected = {
-      name: '',
       email: '', 
       password: ''
     }
@@ -37,11 +29,11 @@ describe('handleChange', () => {
     let mockEvent = {
       target: {
         name: 'name',
-        value: 'cat'
+        value: 'dog'
       }
     }
     const expected = {
-        name: 'cat',
+        name: 'dog',
         email: '', 
         password: ''
       }
@@ -51,14 +43,16 @@ describe('handleChange', () => {
   })
 
   describe('handleSubmit', () => {
-    it('should call postNewUser with the correct params', () => {
+    it.skip('should call getUser with the correct params', async () => {
       const mockEvent = {
         preventDefault: jest.fn()
       }
-      Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
-      expect(postNewUser).toHaveBeenCalledWith(wrapper.state());
+      console.log(wrapper.state())
+      await Promise.resolve(wrapper.instance().handleSubmit(mockEvent));
+      await expect(getUser).toHaveBeenCalledWith({email: 'email', password: 'password'});
     })
-    it('should call handleCreateUser with the correct params', async () => {
+
+    it.skip('should call handleLogin with the correct params', async () => {
       const mockEvent = {
         preventDefault: jest.fn()
       }
@@ -66,10 +60,12 @@ describe('handleChange', () => {
       const mockUser = {
         id: 1
       }
+
       await wrapper.instance().handleSubmit(mockEvent);
-      expect(mockHandleCreateUser).toHaveBeenCalledWith(mockUser);
+      expect(mockHandleLogin).toHaveBeenCalledWith(mockUser);
     })
-    it('should call clearError', async () => {
+
+    it.skip('should call loadFavorites', async () => {
       const mockEvent = {
         preventDefault: jest.fn()
       } 
@@ -79,7 +75,7 @@ describe('handleChange', () => {
   })
 
   describe('mapDispatchToProps', () => {
-    it('should call handleCreateUser with the right params', () => {
+    it('should call handleLogin with the right params', () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
@@ -89,7 +85,7 @@ describe('handleChange', () => {
       const mockUser = {
         id: 4
       }
-      mappedProps.handleCreateUser(mockUser);
+      mappedProps.handleLogin(mockUser);
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     })
 
@@ -107,17 +103,13 @@ describe('handleChange', () => {
     })
   })
 
-    it('should call clearError with the right params', () => {
+    it('should call addUserFavorites with the right params', () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
-        type: 'CLEAR_ERROR', 
+        type: 'ADD_FAVORITES', 
       }
       mappedProps.clearError();
       expect(mockDispatch).toHaveBeenCalled();
     })
   })
-
-
-
-
