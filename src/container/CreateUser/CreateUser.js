@@ -3,6 +3,7 @@ import { postNewUser } from "../../utilities/apiCalls/apiCalls";
 import { connect } from "react-redux";
 import { updateUser, addError, resolveError } from "../../Actions/index";
 import "./CreateUser.css";
+import PropTypes from 'prop-types'
 
 export class CreateUser extends Component {
   constructor() {
@@ -76,3 +77,9 @@ export default connect(
   null,
   mapDispatchToProps
 )(CreateUser);
+
+CreateUser.propTypes = {
+  handleCreateUser: PropTypes.func,
+  handleError: PropTypes.func,
+  clearError: PropTypes.func
+}

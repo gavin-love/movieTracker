@@ -43,6 +43,23 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
+          className="overview-div"
+>
+          <h2
+                    className="movie-title"
+          >
+                    movie
+          </h2>
+          <h4
+                    className="movie-date"
+          >
+                    56
+          </h4>
+          <p>
+                    what?
+          </p>
+</div>,
+        <div
           className="card_image"
           style={
                     Object {
@@ -53,11 +70,11 @@ ShallowWrapper {
           <div
                     className="rating_div"
           >
-                    <h1
+                    <h3
                               className="card_rating"
                     >
                               345
-                    </h1>
+                    </h3>
           </div>
 </div>,
         <div
@@ -65,7 +82,7 @@ ShallowWrapper {
           onClick={[Function]}
           type="button"
 >
-          un-favorite
+          Remove
 </div>,
       ],
       "className": "card_div",
@@ -77,14 +94,76 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "children": Array [
+            <h2
+              className="movie-title"
+>
+              movie
+</h2>,
+            <h4
+              className="movie-date"
+>
+              56
+</h4>,
+            <p>
+              what?
+</p>,
+          ],
+          "className": "overview-div",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "movie",
+              "className": "movie-title",
+            },
+            "ref": null,
+            "rendered": "movie",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": 56,
+              "className": "movie-date",
+            },
+            "ref": null,
+            "rendered": 56,
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "what?",
+            },
+            "ref": null,
+            "rendered": "what?",
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
           "children": <div
             className="rating_div"
 >
-            <h1
+            <h3
                         className="card_rating"
             >
                         345
-            </h1>
+            </h3>
 </div>,
           "className": "card_image",
           "style": Object {
@@ -97,11 +176,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <h1
+            "children": <h3
               className="card_rating"
 >
               345
-</h1>,
+</h3>,
             "className": "rating_div",
           },
           "ref": null,
@@ -115,7 +194,7 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": 345,
-            "type": "h1",
+            "type": "h3",
           },
           "type": "div",
         },
@@ -126,13 +205,13 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "un-favorite",
+          "children": "Remove",
           "className": "remove_button",
           "onClick": [Function],
           "type": "button",
         },
         "ref": null,
-        "rendered": "un-favorite",
+        "rendered": "Remove",
         "type": "div",
       },
     ],
@@ -146,6 +225,23 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
+            className="overview-div"
+>
+            <h2
+                        className="movie-title"
+            >
+                        movie
+            </h2>
+            <h4
+                        className="movie-date"
+            >
+                        56
+            </h4>
+            <p>
+                        what?
+            </p>
+</div>,
+          <div
             className="card_image"
             style={
                         Object {
@@ -156,11 +252,11 @@ ShallowWrapper {
             <div
                         className="rating_div"
             >
-                        <h1
+                        <h3
                                     className="card_rating"
                         >
                                     345
-                        </h1>
+                        </h3>
             </div>
 </div>,
           <div
@@ -168,7 +264,7 @@ ShallowWrapper {
             onClick={[Function]}
             type="button"
 >
-            un-favorite
+            Remove
 </div>,
         ],
         "className": "card_div",
@@ -180,14 +276,76 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": Array [
+              <h2
+                className="movie-title"
+>
+                movie
+</h2>,
+              <h4
+                className="movie-date"
+>
+                56
+</h4>,
+              <p>
+                what?
+</p>,
+            ],
+            "className": "overview-div",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "movie",
+                "className": "movie-title",
+              },
+              "ref": null,
+              "rendered": "movie",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": 56,
+                "className": "movie-date",
+              },
+              "ref": null,
+              "rendered": 56,
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "what?",
+              },
+              "ref": null,
+              "rendered": "what?",
+              "type": "p",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
             "children": <div
               className="rating_div"
 >
-              <h1
+              <h3
                             className="card_rating"
               >
                             345
-              </h1>
+              </h3>
 </div>,
             "className": "card_image",
             "style": Object {
@@ -200,11 +358,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <h1
+              "children": <h3
                 className="card_rating"
 >
                 345
-</h1>,
+</h3>,
               "className": "rating_div",
             },
             "ref": null,
@@ -218,7 +376,7 @@ ShallowWrapper {
               },
               "ref": null,
               "rendered": 345,
-              "type": "h1",
+              "type": "h3",
             },
             "type": "div",
           },
@@ -229,13 +387,13 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "un-favorite",
+            "children": "Remove",
             "className": "remove_button",
             "onClick": [Function],
             "type": "button",
           },
           "ref": null,
-          "rendered": "un-favorite",
+          "rendered": "Remove",
           "type": "div",
         },
       ],

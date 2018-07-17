@@ -6,6 +6,7 @@ import {
 } from "../../utilities/apiCalls/apiCalls";
 import { addFavorite, removeFavoriteFromStore, addError } from "../../Actions";
 import "./Card.css";
+import PropTypes from 'prop-types'
 
 export const Card = props => {
   const {
@@ -86,3 +87,18 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Card);
+
+
+Card.propTypes = {
+  user: PropTypes.object,
+  favorites: PropTypes.arrayOf(PropTypes.object),
+  handleFavorite: PropTypes.func,
+  handleRemove: PropTypes.func,
+  handleError: PropTypes.func,
+  vote_average: PropTypes.number,
+  overview: PropTypes.string,
+  poster_path: PropTypes.string,
+  release_date: PropTypes.number,
+  title: PropTypes.string,
+  movie_id: PropTypes.number
+}

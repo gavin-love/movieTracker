@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Card from "../../container/Card/Card";
+import PropTypes from 'prop-types'
 
 export const FavoriteContainer = props => {
   const displayFavorites = props.favorites.map(favorite => {
@@ -22,3 +23,8 @@ export default connect(
   mapStateToProps,
   null
 )(FavoriteContainer);
+
+
+FavoriteContainer.propTypes = {
+  favorites: PropTypes.arrayOf(PropTypes.object)
+}

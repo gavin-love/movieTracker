@@ -7,6 +7,7 @@ import {
   addAllFavorites,
   resolveError
 } from "../../Actions/index.js";
+import PropTypes from 'prop-types'
 
 export class LoginUser extends Component {
   constructor() {
@@ -81,3 +82,11 @@ export default connect(
   null,
   mapDispatchToProps
 )(LoginUser);
+
+
+LoginUser.propTypes = {
+  handleLogin: PropTypes.func,
+  handleError: PropTypes.func,
+  clearError: PropTypes.func,
+  addUserFavorites:PropTypes.func
+}
