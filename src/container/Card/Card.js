@@ -39,13 +39,13 @@ export const Card = props => {
           : props.handleError("Login to add favorites");
       }}
     >
-      favorite
+      Favorite
     </div>
   );
 
   const deleteButton = (
     <div className="remove_button" type="button" onClick={handleRemoveFavorite}>
-      un-favorite
+      Remove
     </div>
   );
 
@@ -63,7 +63,7 @@ export const Card = props => {
         }}
       >
         <div className="rating_div">
-          <h1 className="card_rating">{vote_average}</h1>
+          <h3 className="card_rating">{vote_average}</h3>
         </div>
       </div>
       {favoriteIds.includes(movie_id) ? deleteButton : favoriteButton}
