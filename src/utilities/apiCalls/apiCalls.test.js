@@ -1,6 +1,8 @@
 import * as api from "./apiCalls";
 import MockData from "../../MockData/MockData";
-import { apiKey } from "../../apiKeys";
+import {
+  apiKey
+} from "../../apiKeys";
 import CleanMockData from "../../MockData/MockCleanData";
 
 describe("apiCall", () => {
@@ -51,17 +53,20 @@ describe("apiCall", () => {
         summary: 'path'
       }
 
-      window.fetch = jest.fn().mockImplementation(() => 
+      window.fetch = jest.fn().mockImplementation(() =>
         Promise.resolve({
           status: 200,
           json: () => Promise.resolve(mockFavorite)
         }))
     })
     it('should be called with the correct params', async () => {
-       const expected = [
+      const expected = [
         "http://localhost:3000/api/users/favorites/new",
         {
-          body: JSON.stringify({user_id: mockUser.user_id, ...mockMovie}),
+          body: JSON.stringify({
+            user_id: mockUser.user_id,
+            ...mockMovie
+          }),
           headers: {
             "Content-Type": "application/json"
           },
@@ -72,13 +77,29 @@ describe("apiCall", () => {
       expect(window.fetch).toHaveBeenCalledWith(...expected);
     })
   })
+
+  describe('removeFavorite', () => {
+
+
+    it('should be called with the correct params', async () => {
+      const mockUser = {
+        user_id: 5,
+        movie_id: 5
+      }
+
+      const mockRemove = {
+        method: 'DELETE'
+      }
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200
+      }))
+
+      const url = `http://localhost:3000/api/users/${mockUser.user_id}/favorites/${mockUser.movie_id}`
+
+      await api.removeFavorite(mockUser)
+
+      expect(window.fetch).toHaveBeenCalledWith(url, mockRemove)
+    });
+  });
 });
-
-
-
-
-
-
-
-
-
