@@ -139,7 +139,6 @@ describe("apiCall", () => {
   });
 
   describe('postNewUser', () => {
-
     it('should be called with the correct params ', async () => {
       const mockUser = {
         name: 'khalid',
@@ -169,6 +168,62 @@ describe("apiCall", () => {
       await api.postNewUser(mockUser)
 
       expect(window.fetch).toHaveBeenCalledWith(...expected)
+    });
+  });
+
+  describe('getUser', () => {
+    let mockUser;
+    let mockUsers;
+
+    beforeEach(() => {
+      mockUser = {
+        email: '123',
+        password: '456'
+      }
+      mockUsers = [{
+          email: '123',
+          password: '456',
+          id: 3,
+          name: 'john'
+        },
+        {
+          email: 'yes',
+          password: 'no',
+          id: 4,
+          name: 'susan'
+        }
+      ]
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockUsers[0])
+      }))
+    });
+
+    it('should be called with the correct params ', async () => {
+      const url = "http://localhost:3000/api/users"
+      const expected = [url, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: mockUser.email,
+          password: mockUser.password
+        }),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      }];
+
+      await api.getUser(mockUser)
+
+      expect(window.fetch).toHaveBeenCalledWith(...expected)
+    });
+
+    it('should return an existing user', async () => {
+      const expected = mockUsers[0]
+      const actual = await api.getUser(mockUser)
+
+      expect(actual).toEqual(expected)
     });
   });
 });
