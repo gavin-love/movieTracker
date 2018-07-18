@@ -28,5 +28,7 @@ In the terminal, run npm test
 ## Authors
 
 ***Gavin Love** - *Initial work* - [gavin-love](hhttps://github.com/gavin-love)
+
 ***Alan Charles** - *Initial work* - [abomb14c](https://github.com/abomb14c)
+
 ***Keeliana Marler** - *Initial work* - [kmarler2](https://github.com/kmarler2)
