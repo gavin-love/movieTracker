@@ -6,7 +6,7 @@ import {
 } from "../../utilities/apiCalls/apiCalls";
 import { addFavorite, removeFavoriteFromStore, addError } from "../../Actions";
 import "./Card.css";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export const Card = props => {
   const {
@@ -101,4 +101,4 @@ Card.propTypes = {
   release_date: PropTypes.number,
   title: PropTypes.string,
   movie_id: PropTypes.number
-}
+};

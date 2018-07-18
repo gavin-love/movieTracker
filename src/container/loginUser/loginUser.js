@@ -7,7 +7,7 @@ import {
   addAllFavorites,
   resolveError
 } from "../../Actions/index.js";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export class LoginUser extends Component {
   constructor() {
@@ -41,7 +41,9 @@ export class LoginUser extends Component {
     try {
       const favorites = await getFavorites(user.id);
       this.props.addUserFavorites(favorites.data);
-    } catch (error) {}
+    } catch (error) {
+      throw new Error('Failed to load favorites');
+    }
   };
 
   render() {
@@ -89,4 +91,4 @@ LoginUser.propTypes = {
   handleError: PropTypes.func,
   clearError: PropTypes.func,
   addUserFavorites:PropTypes.func
-}
+};

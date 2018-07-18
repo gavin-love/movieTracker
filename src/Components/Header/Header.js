@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { addLogout, emptyFavorites } from "../../Actions/index";
 import "./Header.css";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export const Header = props => {
   const removeInfo = () => {
@@ -56,4 +56,4 @@ Header.propTypes = {
   user: PropTypes.object,
   handleLogout: PropTypes.func,
   resetStoreFavorites: PropTypes.func
-}
+};

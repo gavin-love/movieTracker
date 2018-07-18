@@ -8,7 +8,7 @@ import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Login from "../../Components/Login/Login";
 import Header from "../../Components/Header/Header";
 import FavoriteContainer from "../FavoriteContainer/FavoriteContainer";
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 export class App extends Component {
   componentDidMount() {
@@ -68,4 +68,4 @@ App.propTypes = {
   user: PropTypes.object,
   error: PropTypes.string,
   handleMovies: PropTypes.func
-}
+};
