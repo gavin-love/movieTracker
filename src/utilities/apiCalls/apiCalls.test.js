@@ -26,4 +26,59 @@ describe("apiCall", () => {
       await expect(api.movieFetch()).resolves.toEqual(CleanMockData);
     });
   });
+
+  describe('submitFavorite', () => {
+    let mockFavorite;
+    let mockUser;
+    let mockMovie;
+
+    beforeEach(() => {
+      mockFavorite = {
+        id: 2,
+        image: 'movie',
+        rating: 3,
+        summary: 'path'
+      }
+
+      mockUser = {
+        user_id: 2
+      }
+
+      mockMovie = {
+        id: 2,
+        image: 'movie',
+        rating: 3,
+        summary: 'path'
+      }
+
+      window.fetch = jest.fn().mockImplementation(() => 
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(mockFavorite)
+        }))
+    })
+    it('should be called with the correct params', async () => {
+       const expected = [
+        "http://localhost:3000/api/users/favorites/new",
+        {
+          body: JSON.stringify({user_id: mockUser.user_id, ...mockMovie}),
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "POST"
+        }
+      ];
+      await api.submitFavorite(mockFavorite, mockUser);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    })
+  })
 });
+
+
+
+
+
+
+
+
+
