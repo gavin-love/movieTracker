@@ -3,7 +3,7 @@
   flex-direction: column;
   position: relative;
   width: 20%;
-  height: 325px;
+  height: 400px;
   margin: 20px;
   padding: 0;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
@@ -11,7 +11,7 @@
 }
 .card_image {
   width: 100%;
-  height: 300px;
+  height: 380px;
   background-size: cover;
   box-sizing: border-box;
 }
@@ -24,6 +24,7 @@
 
 .favorite_button,
 .remove_button {
+  padding-top: 3%;
   height: 25px;
   width: 100%;
   background-color: #bfd9da;
@@ -34,3 +35,45 @@
   background-color: #bc4676;
   color: white;
 }
+
+.overview-div{
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 367px;
+  color: #fff;
+  background-color: rgba(188,70,118, 0.7);
+  z-index: 1;
+  font-weight: 300;
+  overflow: scroll;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  transition: opacity 1s ease-out;
+}
+
+.overview-div:hover {
+  opacity: 1;
+} 
+
+.rating_div {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color:#bc4676;
+  position: absolute;
+  left: 215px;
+  top: 10px;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.40);
+}
+
+.card_rating {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 15px;
+  }

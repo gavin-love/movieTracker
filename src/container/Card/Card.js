@@ -6,6 +6,7 @@ import {
 } from "../../utilities/apiCalls/apiCalls";
 import { addFavorite, removeFavoriteFromStore, addError } from "../../Actions";
 import "./Card.css";
+import PropTypes from 'prop-types'
 
 export const Card = props => {
   const {
@@ -39,18 +40,23 @@ export const Card = props => {
           : props.handleError("Login to add favorites");
       }}
     >
-      favorite
+      Favorite
     </div>
   );
 
   const deleteButton = (
     <div className="remove_button" type="button" onClick={handleRemoveFavorite}>
-      un-favorite
+      Remove
     </div>
   );
 
   return (
     <div className="card_div">
+      <div className="overview-div">
+        <h2 className="movie-title">{title}</h2>
+        <h4 className="movie-date">{release_date}</h4>
+        <p>{overview}</p>
+      </div>
       <div
         className="card_image"
         style={{
@@ -58,7 +64,7 @@ export const Card = props => {
         }}
       >
         <div className="rating_div">
-          <h1 className="card_rating">{vote_average}</h1>
+          <h3 className="card_rating">{vote_average}</h3>
         </div>
       </div>
       {favoriteIds.includes(movie_id) ? deleteButton : favoriteButton}
@@ -81,3 +87,18 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Card);
+
+
+Card.propTypes = {
+  user: PropTypes.object,
+  favorites: PropTypes.arrayOf(PropTypes.object),
+  handleFavorite: PropTypes.func,
+  handleRemove: PropTypes.func,
+  handleError: PropTypes.func,
+  vote_average: PropTypes.number,
+  overview: PropTypes.string,
+  poster_path: PropTypes.string,
+  release_date: PropTypes.number,
+  title: PropTypes.string,
+  movie_id: PropTypes.number
+}

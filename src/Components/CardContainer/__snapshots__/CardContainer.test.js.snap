@@ -32,23 +32,24 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Unknown
+        <Connect(Component)
           id={1}
 />,
-        <Unknown
+        <Connect(Component)
           id={2}
 />,
-        <Unknown
+        <Connect(Component)
           id={3}
 />,
       ],
+      "className": "card_section",
     },
     "ref": null,
     "rendered": Array [
       Object {
         "instance": null,
         "key": "1",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "id": 1,
         },
@@ -59,7 +60,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": "2",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "id": 2,
         },
@@ -70,7 +71,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": "3",
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "id": 3,
         },
@@ -88,23 +89,24 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Unknown
+          <Connect(Component)
             id={1}
 />,
-          <Unknown
+          <Connect(Component)
             id={2}
 />,
-          <Unknown
+          <Connect(Component)
             id={3}
 />,
         ],
+        "className": "card_section",
       },
       "ref": null,
       "rendered": Array [
         Object {
           "instance": null,
           "key": "1",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "id": 1,
           },
@@ -115,7 +117,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": "2",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "id": 2,
           },
@@ -126,7 +128,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": "3",
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {
             "id": 3,
           },
