@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "eslint": "./node_modules/eslint/bin/eslint.js ./src/*.js"
+    "eslint": "./node_modules/eslint/bin/eslint.js ./src/container/**/*.js --ignore-pattern *.test.js ./src/components/**/*.js --ignore-pattern *.test.js"
   },
   "devDependencies": {
     "eslint": "^5.1.0"
