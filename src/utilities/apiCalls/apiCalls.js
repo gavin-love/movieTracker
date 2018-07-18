@@ -1,5 +1,9 @@
-import { apiKey } from "../../apiKeys";
-import { cleanMovies } from "../cleaner/cleaner";
+import {
+  apiKey
+} from "../../apiKeys";
+import {
+  cleanMovies
+} from "../cleaner/cleaner";
 
 export const movieFetch = async () => {
   const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22`;
@@ -14,10 +18,15 @@ export const submitFavorite = async (favorite, user) => {
   const url = "http://localhost:3000/api/users/favorites/new";
   const options = {
     method: "POST",
-    body: JSON.stringify({ user_id: user.user_id, ...favorite }),
-    headers: { "Content-Type": "application/json" }
+    body: JSON.stringify({
+      user_id: user.user_id,
+      ...favorite
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
   };
-  const response = await fetch(url, options);
+  await fetch(url, options);
 };
 
 export const removeFavorite = async favorite => {
@@ -28,7 +37,7 @@ export const removeFavorite = async favorite => {
     method: "DELETE"
   };
 
-  const response = await fetch(url, options);
+  await fetch(url, options);
 };
 
 export const getFavorites = async userId => {
@@ -59,7 +68,10 @@ export const getUser = async user => {
   const email = user.email.toLowerCase();
   const userOptions = {
     method: "POST",
-    body: JSON.stringify({ email, password: user.password }),
+    body: JSON.stringify({
+      email,
+      password: user.password
+    }),
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
