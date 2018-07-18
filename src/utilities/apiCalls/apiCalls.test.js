@@ -137,4 +137,38 @@ describe("apiCall", () => {
       expect(actual).toEqual(mockFavorites)
     });
   });
+
+  describe('postNewUser', () => {
+
+    it('should be called with the correct params ', async () => {
+      const mockUser = {
+        name: 'khalid',
+        email: '123',
+        password: 'password'
+      }
+      const mockUsers = [mockUser]
+      const expected = [
+        "http://localhost:3000/api/users/new",
+        {
+          body: JSON.stringify(mockUser),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          method: "POST"
+        }
+      ];
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({
+          users: mockUsers
+        })
+      }))
+
+      await api.postNewUser(mockUser)
+
+      expect(window.fetch).toHaveBeenCalledWith(...expected)
+    });
+  });
 });
