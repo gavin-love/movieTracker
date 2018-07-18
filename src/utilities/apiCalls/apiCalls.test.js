@@ -79,8 +79,6 @@ describe("apiCall", () => {
   })
 
   describe('removeFavorite', () => {
-
-
     it('should be called with the correct params', async () => {
       const mockUser = {
         user_id: 5,
@@ -100,6 +98,43 @@ describe("apiCall", () => {
       await api.removeFavorite(mockUser)
 
       expect(window.fetch).toHaveBeenCalledWith(url, mockRemove)
+    });
+  });
+
+  describe('getFavorites', () => {
+    let mockUser;
+    let mockFavorites;
+
+    beforeEach(() => {
+      mockUser = {
+        user_id: 5,
+      }
+      mockFavorites = [{
+        id: 2,
+        image: 'movie',
+        rating: 3,
+        summary: 'path'
+      }]
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(mockFavorites)
+      }))
+    });
+
+    it('call getFavorites with the correct params', async () => {
+      const userId = mockUser.user_id
+      const url = `http://localhost:3000/api/users/${userId}/favorites`
+
+      await api.getFavorites(userId)
+
+      expect(window.fetch).toHaveBeenCalledWith(url)
+    });
+
+    it('should return an array of favorites', async () => {
+      const userId = mockUser.user_id
+      const actual = await api.getFavorites(userId)
+
+      expect(actual).toEqual(mockFavorites)
     });
   });
 });
